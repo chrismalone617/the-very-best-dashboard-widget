@@ -1,0 +1,18 @@
+.wrap h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.form-table th {
+    font-weight: bold;
+}
+
+.form-table input[type="submit"] {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: white;
+}
+
+.form-table input[type="submit"]:hover {
+    background-color: #45a049;
+}
