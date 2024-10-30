@@ -11,8 +11,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-// Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('main');
+
 
 
 class The_Best_Dashboard {
