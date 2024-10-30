@@ -11,6 +11,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+//calls the plugin checker
  require 'plugin-update-checker-5.5/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
