@@ -2,7 +2,7 @@
 /**
  * Plugin Name: The Best Dashboard Plugin From AI
  * Description: A custom dashboard widget plugin with a settings page.
- * Version: 3.1
+ * Version: 3.2
  * Author: Chris
  * Text Domain: the-best-dashboard
  */
@@ -12,6 +12,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Put this toward the top of your main plugin.php file
+
+//Tells the plugin to load the plugin checker
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/chrismalone617/the-very-best-dashboard-widget', //USE YOUR GITHUB REPO URL
+	__FILE__,
+	'the-very-best-dashboard-widget' //THIS IS THE SLUG OF YOUR PLUGIN
+);
+
+// Set the branch that contains the stable release. 
+$myUpdateChecker->setBranch('main');
 
 class The_Best_Dashboard {
 
