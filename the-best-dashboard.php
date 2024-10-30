@@ -2,7 +2,7 @@
 /**
  * Plugin Name: The Best Dashboard Plugin From AI
  * Description: A custom dashboard widget plugin with a settings page.
- * Version: 2.1
+ * Version: 2.2
  * Author: Chris
  * Text Domain: the-best-dashboard
  */
