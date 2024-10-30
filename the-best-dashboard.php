@@ -1,31 +1,43 @@
 <?php
 /**
- * Plugin Name: The Best Dashboard Plugin From AI
- * Description: A custom dashboard widget plugin with a settings page.
- * Version: 4.0
- * Author: Chris
- * Text Domain: the-best-dashboard
+ * Plugin Name:       Best Dashboard Widget
+ * Description:       Best Dashboard Widget's plugin description
+ * Requires at least: 6.3.0
+ * Requires PHP:      8.0
+ * Version:           4.0.0
+ * Author:            Chris Malone
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       best_dashboard_widget
+ * Website:           https://solidwp.com
  */
 
-// Exit if accessed directly
-if (!defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
 
-// Put this toward the top of your main plugin.php file
+$plugin_prefix = 'BESTDASHBOARDWIDGET';
 
-//Tells the plugin to load the plugin checker
-require 'plugin-update-checker/plugin-update-checker.php';
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+// Extract the version number
+$plugin_data = get_file_data(__FILE__, ['Version' => 'Version']);
 
-$myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/chrismalone617/the-very-best-dashboard-widget', //USE YOUR GITHUB REPO URL
-	__FILE__,
-	'the-very-best-dashboard-widget' //THIS IS THE SLUG OF YOUR PLUGIN
+// Plugin Constants
+define($plugin_prefix . '_DIR', plugin_basename(__DIR__));
+define($plugin_prefix . '_BASE', plugin_basename(__FILE__));
+define($plugin_prefix . '_PATH', plugin_dir_path(__FILE__));
+define($plugin_prefix . '_VER', $plugin_data['Version']);
+define($plugin_prefix . '_CACHE_KEY', 'best_dashboard_widget-cache-key-for-plugin');
+define($plugin_prefix . '_REMOTE_URL', 'https://plugins.withchris.dev/wp-content/uploads/downloads/24/info.json');
+
+require constant($plugin_prefix . '_PATH') . 'inc/update.php';
+
+new DPUpdateChecker(
+	constant($plugin_prefix . '_BASE'),
+	constant($plugin_prefix . '_VER'),
+	constant($plugin_prefix . '_CACHE_KEY'),
+	constant($plugin_prefix . '_REMOTE_URL'),
 );
 
-// Set the branch that contains the stable release. 
-$myUpdateChecker->setBranch('main');
 
 class The_Best_Dashboard {
 
